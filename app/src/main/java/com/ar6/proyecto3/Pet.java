@@ -5,13 +5,13 @@ public class Pet {
     private String varNombre;
     private int varRanking;
     private int varEdad;
-    private String varFoto;
+    private int varFoto;
     private byte varID;
 
     public Pet() {
     }
 
-    public Pet(String varNombre, int varRanking, int varEdad, String varFoto, byte varID) {
+    public Pet(String varNombre, int varRanking, int varEdad, int varFoto, byte varID) {
         this.varNombre = varNombre;
         this.varRanking = varRanking;
         this.varEdad = varEdad;
@@ -43,11 +43,11 @@ public class Pet {
         this.varEdad = varEdad;
     }
 
-    public String getVarFoto() {
+    public int getVarFoto() {
         return varFoto;
     }
 
-    public void setVarFoto(String varFoto) {
+    public void setVarFoto(int varFoto) {
         this.varFoto = varFoto;
     }
 

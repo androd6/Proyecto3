@@ -11,4 +11,6 @@
     <color name="primario_700">#522da8</color>
     <color name="secundario_500">#4caf4f</color>
     <color name="secundario_700">#388e3b</color>
+    <color name="gray_300">#dcdadf</color>
+    <color name="gray_200">#ebe9ee</color>
 </resources>

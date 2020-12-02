@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/v1_AppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,10 +57,33 @@
                 app:layout_constraintStart_toStartOf="@+id/v1_ToolBar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.458"
-                app:srcCompat="@drawable/icons8_dog_paw_96" />
+                app:srcCompat="@drawable/icons8_dog_paw_96"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/v1_Star"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:elevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/v1_ToolBar"
+                app:layout_constraintEnd_toEndOf="@+id/v1_ToolBar"
+                app:layout_constraintTop_toTopOf="@+id/v1_ToolBar"
+                app:srcCompat="@drawable/icons8_hotel_24"
+                tools:ignore="ContentDescription" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/v1_RecycledView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v1_AppBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
