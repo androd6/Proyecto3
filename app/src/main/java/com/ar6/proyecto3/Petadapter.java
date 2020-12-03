@@ -17,6 +17,7 @@ public class Petadapter extends RecyclerView.Adapter<Petadapter.PetViewHolder> {
     ArrayList<Pet> varListPet;
 
     public Petadapter(ArrayList<Pet> varListPet) {
+
         this.varListPet = varListPet;
     }
 
@@ -37,6 +38,15 @@ public class Petadapter extends RecyclerView.Adapter<Petadapter.PetViewHolder> {
         varholder.varCvTvName.setText(varPet.getVarNombre());
         varTemp = Integer.toString(varPet.getVarRanking());
         varholder.varCvTvRank.setText(varTemp);
+
+        varholder.varCvBtnRank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int varTempRank = varPet.getVarRanking() + 1;
+                varPet.setVarRanking(varTempRank);
+                varholder.varCvTvRank.setText(Integer.toString(varPet.getVarRanking()));
+            }
+        });
     }
 
     // Cantidad de elemntos que contiene la lista

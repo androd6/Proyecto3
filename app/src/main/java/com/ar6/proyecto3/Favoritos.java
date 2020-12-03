@@ -8,28 +8,28 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class Favoritos extends AppCompatActivity {
 
     private ArrayList<Pet> varPetsList = new ArrayList<Pet>();
-    private CreatePet varPetsIni = new CreatePet();
     private RecyclerView varRvListPet;
+    private CreatePet varPetsIni = new CreatePet();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_favoritos);
 
-        // Definicion del toolbar del activity
-        Toolbar varToolbar = findViewById(R.id.v1_ToolBar);
+        Toolbar varToolbar = findViewById(R.id.v2_ToolBar);
         setSupportActionBar(varToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         varPetsList = varPetsIni.getVarPets();
 
-        varRvListPet =(RecyclerView) findViewById(R.id.v1_RecycledView);
+        varRvListPet =(RecyclerView) findViewById(R.id.v2_RecycledView);
 
         LinearLayoutManager varLLM = new LinearLayoutManager(this);
         varLLM.setOrientation(LinearLayoutManager.VERTICAL);
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickImgBtn(View v){
-        Intent varIntent = new Intent(this, Favoritos.class);
+        Intent varIntent = new Intent(this, MainActivity.class);
         //varIntent.putExtra(prmV2Name, varV1tiName.getText().toString().trim());
         startActivity(varIntent);
     }
