@@ -13,9 +13,8 @@ import java.util.ArrayList;
 
 public class Favoritos extends AppCompatActivity {
 
-    private ArrayList<Pet> varPetsList = new ArrayList<Pet>();
+    private ArrayList<Pet> varPetsList = new ArrayList<>();
     private RecyclerView varRvListPet;
-    private CreatePet varPetsIni = new CreatePet();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +26,13 @@ public class Favoritos extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        varPetsList = varPetsIni.getVarPets();
+        Intent varPrmIntent = getIntent();
 
-        varRvListPet =(RecyclerView) findViewById(R.id.v2_RecycledView);
+        if (varPrmIntent.getExtras() != null){
+            varPetsList =  getIntent().getParcelableArrayListExtra("Lista");
+        }
+
+        varRvListPet = findViewById(R.id.v2_RecycledView);
 
         LinearLayoutManager varLLM = new LinearLayoutManager(this);
         varLLM.setOrientation(LinearLayoutManager.VERTICAL);

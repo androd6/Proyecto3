@@ -1,6 +1,19 @@
 package com.ar6.proyecto3;
 
-public class Pet {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Pet implements Parcelable {
+
+    public static final Parcelable.Creator<Pet> CREATOR = new Parcelable.Creator<Pet>() {
+        public Pet createFromParcel(Parcel in) {
+            return new Pet(in);
+        }
+
+        public Pet[] newArray(int size) {
+            return new Pet[size];
+        }
+    };
 
     private String varNombre;
     private int varRanking;
@@ -17,6 +30,14 @@ public class Pet {
         this.varEdad = varEdad;
         this.varFoto = varFoto;
         this.varID = varID;
+    }
+
+    public Pet(Parcel in) {
+        this.varNombre = in.readString();
+        this.varRanking = in.readInt();
+        this.varEdad = in.readInt();
+        this.varFoto = in.readInt();
+        this.varID = in.readByte();
     }
 
     public String getVarNombre() {
@@ -57,6 +78,20 @@ public class Pet {
 
     public void setVarID(byte varID) {
         this.varID = varID;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.varNombre);
+        dest.writeInt(this.varRanking);
+        dest.writeInt(this.varEdad);
+        dest.writeInt(this.varFoto);
+        dest.writeByte(this.varID);
     }
 
 }

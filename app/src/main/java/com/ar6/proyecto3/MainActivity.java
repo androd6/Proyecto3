@@ -14,9 +14,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Pet> varPetsList = new ArrayList<Pet>();
+    private ArrayList<Pet> varPetsList = new ArrayList<>();
     private CreatePet varPetsIni = new CreatePet();
     private RecyclerView varRvListPet;
+
+    public static final ArrayList<Pet> paramPetsList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         varPetsList = varPetsIni.getVarPets();
 
-        varRvListPet =(RecyclerView) findViewById(R.id.v1_RecycledView);
+        varRvListPet = findViewById(R.id.v1_RecycledView);
 
         LinearLayoutManager varLLM = new LinearLayoutManager(this);
         varLLM.setOrientation(LinearLayoutManager.VERTICAL);
@@ -46,8 +48,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickImgBtn(View v){
+        paramPetsList.add(varPetsList.get(1));
+        paramPetsList.add(varPetsList.get(2));
+        paramPetsList.add(varPetsList.get(3));
+        paramPetsList.add(varPetsList.get(6));
+        paramPetsList.add(varPetsList.get(7));
+
         Intent varIntent = new Intent(this, Favoritos.class);
-        //varIntent.putExtra(prmV2Name, varV1tiName.getText().toString().trim());
+        varIntent.putParcelableArrayListExtra("Lista", paramPetsList);
         startActivity(varIntent);
     }
 }
